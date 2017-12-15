@@ -1,0 +1,69 @@
+let song = [
+  {play: "A#"},
+  {wait: 1},
+  {play: "B"},
+  {wait: 1},
+  {release: "A#"},
+  {release: "B"},
+  {play: "A#"},
+  {wait: 1},
+  {release: "A#"},
+  {play: "G"},
+  {wait: 5},
+  {release: "G"},
+]
+
+let song2 = [
+  {play: "C"},
+  {play: "G"},
+  {wait: 1},
+  {play: "E"},
+  {release: "C"},
+  {release: "G"},
+  {wait: 1.5},
+  {play: "B"},
+  {play: "G"},
+  {wait: 4},
+  {release: "E"},
+  {release: "B"},
+  {release: "G"},
+  {wait: 0.5},
+  {play: "C"},
+  {play: "G"},
+  {play: "E"},
+  {release: "C"},
+  {release: "G"},
+  {release: "E"}
+]
+
+function play_piano(notes)
+{
+  for (obj in notes)
+  {
+    for (key in notes[obj])
+    {
+      if (key == "play")
+      {
+        console.log("play: " + notes[obj][key])
+      }
+      else if (key == "wait")
+      {
+        console.log("wait: " + notes[obj][key] + " seconds")
+      }
+      else if (key == "release")
+      {
+        console.log("release: " + notes[obj][key])
+      }
+      else {
+        {
+          console.log("error")
+        }
+      }
+    }
+
+  }
+}
+
+play_piano(song)
+console.log()
+play_piano(song2)

@@ -1,0 +1,81 @@
+arr = [1, 8, 4, 3, 6, 2]
+
+console.log(myset_size(arr))
+console.log(arr)
+myset_add(arr, 5)
+console.log(arr)
+myset_add(arr, 1)
+console.log(arr)
+myset_remove(arr, 4)
+console.log(arr)
+myset_remove(arr, 5)
+console.log(arr)
+console.log(myset_has(arr, 1))
+console.log(myset_has(arr, 10))
+myset_forEach(arr, function(item) {console.log(item)})
+
+
+
+function myset_add(data, new_value)
+{
+  if (myset_has(data, new_value) == true)
+  {
+    console.log("Sets must be unique.")
+  }
+  else
+  {
+    data[myset_size(data)] = new_value
+  }
+}
+
+function myset_remove(data, remove_value)
+{
+  for (i = myset_indexOf(data, remove_value); i < myset_size(data); i++)
+  {
+    data[i] = data[i + 1]
+  }
+  data.pop()
+}
+
+function myset_indexOf(data, value)
+{
+  for (i = 0; i < myset_size(data); i++)
+  {
+    if (data[i] == value)
+    {
+      return i
+    }
+  }
+  return -1
+}
+
+// Return true if test_value is in the set, false otherwise
+function myset_has(data, test_value)
+{
+  for(value in data)
+  {
+    if (data[value] == test_value)
+    {
+      return true
+    }
+  }
+  return false
+}
+
+function myset_size(data)
+{
+  index = 0
+  for(value in data)
+  {
+    index++
+  }
+  return index
+}
+
+function myset_forEach(data, callback_function)
+{
+  for(i = 0; i < myset_size(data); i++)
+  {
+    callback_function(data[i])
+  }
+}
